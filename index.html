@@ -3,112 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21 de Septiembre - El Jardín del Edén 🌻</title>
+  <title>21 de Septiembre - Para YHAMILE 🌻</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- FONDO TIPO JARDÍN DEL EDÉN -->
-  <div class="eden-fondo">
-    <div class="sol-mistico"></div>
-    <div class="aurora-luz"></div>
-    <div class="cascada-magica"></div>
-    <div class="montanas-eden"></div>
-    <div class="vegetacion-eden"></div>
-    
-    <!-- Partículas y destellos brillantes del Edén -->
-    <div class="brillos-eden">
-      <div class="destello d1"></div>
-      <div class="destello d2"></div>
-      <div class="destello d3"></div>
-      <div class="destello d4"></div>
-      <div class="destello d5"></div>
+  <!-- Control para mostrar la galería de girasoles centrados -->
+  <input type="checkbox" id="activar-lluvia">
+
+  <!-- FONDO DE JARDÍN DE DÍA -->
+  <div class="jardin-dia-fondo">
+    <div class="sol-dia"></div>
+    <div class="nube nube1"></div>
+    <div class="nube nube2"></div>
+    <div class="flores-fondo"></div>
+    <div class="pasto-jardin"></div>
+  </div>
+
+  <!-- GIRASOLES GIGANTES QUIETOS CON LETRAS DE YHAMILE Y TALLO -->
+  <div class="galeria-girasoles-centrados">
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">Y</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-izq"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">H</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-der"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">A</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-izq"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">M</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-der"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">I</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-izq"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">L</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-der"></div>
+    </div>
+    <div class="girasol-completo-gigante">
+      <div class="flor-lluvia"><div class="centro-lluvia">E</div></div>
+      <div class="tallo-gigante"></div>
+      <div class="hoja-gigante hoja-izq"></div>
     </div>
   </div>
 
-  <!-- GIRASOLES FLOTANDO Y MOVIÉNDOSE POR TODA LA PANTALLA -->
-  <div class="girasoles-pantalla">
-    
-    <!-- Girasol Flotante 1 -->
-    <div class="girasol-móvil gf1">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-    <!-- Girasol Flotante 2 -->
-    <div class="girasol-móvil gf2">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-    <!-- Girasol Flotante 3 -->
-    <div class="girasol-móvil gf3">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-    <!-- Girasol Flotante 4 -->
-    <div class="girasol-móvil gf4">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-    <!-- Girasol Flotante 5 -->
-    <div class="girasol-móvil gf5">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-    <!-- Girasol Flotante 6 -->
-    <div class="girasol-móvil gf6">
-      <div class="flor">
-        <div class="centro"></div>
-        <div class="petalo p1"></div><div class="petalo p2"></div><div class="petalo p3"></div>
-        <div class="petalo p4"></div><div class="petalo p5"></div><div class="petalo p6"></div>
-        <div class="petalo p7"></div><div class="petalo p8"></div><div class="petalo p9"></div>
-        <div class="petalo p10"></div><div class="petalo p11"></div><div class="petalo p12"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- CONTENIDO PRINCIPAL Y CENTRO DE LA ESCENA -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main class="contenedor">
     <header class="encabezado">
       <span class="fecha">21 DE SEPTIEMBRE</span>
-      <h1>El Edén de tus Girasoles</h1>
-      <p class="subtitulo">En un paraíso sin fin, mi regalo eterno para ti</p>
+      <h1>Para YHAMILE 🌻</h1>
+      <p class="subtitulo">Un hermoso jardín soleado para ti</p>
     </header>
 
-    <!-- Ramo Principal de Girasoles con Animación 3D -->
+    <!-- Botón Mágico -->
+    <label for="activar-lluvia" class="boton-magico">
+      ✨ Mostrar los girasoles de YHAMILE ✨
+    </label>
+
+    <!-- Ramo Principal en Maceta -->
     <div class="escena-3d">
       <div class="ramo-girasoles">
-        
         <!-- Girasol Central Grande -->
         <div class="girasol principal">
           <div class="flor">
@@ -158,7 +124,7 @@
 
     <!-- Mensaje Especial -->
     <div class="tarjeta-mensaje">
-      <p>Ni todo el Jardín del Edén se compara con la luz que le das a mi vida. ¡Feliz 21 de septiembre, mi amor!</p>
+      <p>Que tu día brille tan fuerte como estos girasoles bajo el sol. ¡Feliz 21 de septiembre, mi amor Yhamile!</p>
     </div>
   </main>
 

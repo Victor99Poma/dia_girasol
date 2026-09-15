@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Sacramento&display=swap');
 
 * {
   margin: 0;
@@ -14,219 +14,213 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  color: #fff;
+  color: #2c3e50;
   position: relative;
-  background: #0f2027;
+  background: #87ceeb;
+}
+
+#activar-lluvia {
+  display: none;
 }
 
 /* ==============================================
-   FONDO MÍSTICO Y MÁGICO: JARDÍN DEL EDÉN
+   BOTÓN MÁGICO
 ============================================== */
-.eden-fondo {
+.boton-magico {
+  display: inline-block;
+  margin: 10px 0 15px 0;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #f1c40f, #e67e22);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+  transition: all 0.3s ease;
+  user-select: none;
+  z-index: 10;
+}
+
+.boton-magico:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(230, 126, 34, 0.6);
+}
+
+/* ==============================================
+   GIRASOLES GIGANTES QUIETOS EN EL MEDIO (CON TALLO)
+============================================== */
+.galeria-girasoles-centrados {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 95%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  z-index: 8;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+#activar-lluvia:checked ~ .galeria-girasoles-centrados {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.girasol-completo-gigante {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Flor (mas grande que la maceta de 110px) */
+.flor-lluvia {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  background: radial-gradient(circle, #ffe000 35%, #ff9100 70%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 4px dashed #f39c12;
+  z-index: 2;
+}
+
+.centro-lluvia {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #4a235a 0%, #2c3e50 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 2.2rem;
+  color: #f1c40f;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Tallo para cada girasol */
+.tallo-gigante {
+  width: 12px;
+  height: 140px;
+  background: linear-gradient(to right, #27ae60, #2ecc71, #1e8449);
+  border-radius: 6px;
+  margin-top: -10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hoja-gigante {
+  position: absolute;
+  width: 35px;
+  height: 20px;
+  background: #27ae60;
+  border-radius: 0 100% 0 100%;
+}
+
+.hoja-gigante.hoja-izq {
+  bottom: 50px;
+  left: -25px;
+  transform: rotate(-20deg);
+}
+
+.hoja-gigante.hoja-der {
+  bottom: 70px;
+  right: -25px;
+  transform: scaleX(-1) rotate(-20deg);
+}
+
+/* ==============================================
+   FONDO DE JARDÍN DE DÍA
+============================================== */
+.jardin-dia-fondo {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: linear-gradient(180deg, #130c25 0%, #1e3c72 40%, #2a5298 70%, #11998e 100%);
+  background: linear-gradient(to bottom, #74b9ff 0%, #a29bfe 50%, #81ecec 80%);
   overflow: hidden;
 }
 
-.sol-mistico {
+.sol-dia {
   position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(255, 245, 157, 0.9) 0%, rgba(255, 215, 0, 0.5) 30%, transparent 70%);
+  top: 30px;
+  right: 50px;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, #ffeaa7 20%, #fdcb6e 100%);
   border-radius: 50%;
-  filter: blur(25px);
-  animation: pulsoEdén 7s ease-in-out infinite alternate;
+  box-shadow: 0 0 40px #fdcb6e, 0 0 80px #ffeaa7;
 }
 
-@keyframes pulsoEdén {
-  0% { transform: translateX(-50%) scale(0.9); opacity: 0.8; }
-  100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
-}
-
-.aurora-luz {
+.nube {
   position: absolute;
-  top: 0;
-  width: 100%;
-  height: 60%;
-  background: linear-gradient(120deg, rgba(56, 239, 125, 0.2), rgba(108, 92, 231, 0.2), rgba(255, 234, 167, 0.25));
-  filter: blur(40px);
-  animation: auraEdén 10s ease-in-out infinite alternate;
+  background: #ffffff;
+  border-radius: 50px;
+  opacity: 0.9;
 }
 
-@keyframes auraEdén {
-  0% { opacity: 0.4; transform: translateY(-10px) rotate(0deg); }
-  100% { opacity: 0.8; transform: translateY(10px) rotate(5deg); }
-}
-
-/* Cascada luminosa de agua */
-.cascada-magica {
+.nube::before, .nube::after {
+  content: '';
   position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90px;
-  height: 220px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(129, 236, 236, 0.5), transparent);
-  filter: blur(8px);
-  opacity: 0.6;
-  border-radius: 50px 50px 0 0;
-  animation: cascadaMov 3s linear infinite;
+  background: #ffffff;
+  border-radius: 50%;
 }
 
-@keyframes cascadaMov {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 200px; }
+.nube1 {
+  top: 60px;
+  left: 10%;
+  width: 140px;
+  height: 45px;
 }
+.nube1::before { width: 50px; height: 50px; top: -20px; left: 20px; }
+.nube1::after { width: 60px; height: 60px; top: -25px; right: 20px; }
 
-.montanas-eden {
-  position: absolute;
-  bottom: 100px;
-  width: 100%;
-  height: 180px;
-  background: radial-gradient(circle at 15% 100%, #112e2b 35%, transparent 36%),
-              radial-gradient(circle at 50% 100%, #0d2321 40%, transparent 41%),
-              radial-gradient(circle at 85% 100%, #112e2b 35%, transparent 36%);
-  opacity: 0.8;
+.nube2 {
+  top: 100px;
+  right: 25%;
+  width: 180px;
+  height: 55px;
 }
+.nube2::before { width: 70px; height: 70px; top: -30px; left: 25px; }
+.nube2::after { width: 70px; height: 70px; top: -25px; right: 30px; }
 
-.vegetacion-eden {
+.pasto-jardin {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 110px;
-  background: linear-gradient(to top, #0a3d62, #38ef7d);
-  opacity: 0.9;
-  border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+  height: 160px;
+  background: linear-gradient(to top, #00b894 0%, #55efc4 100%);
+  border-radius: 50% 50% 0 0 / 15% 15% 0 0;
 }
 
-/* Destellos dorados y flotantes */
-.brillos-eden {
+.flores-fondo {
   position: absolute;
+  bottom: 120px;
   width: 100%;
-  height: 100%;
-}
-
-.destello {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #ffeaa7, 0 0 20px #fdcb6e;
-  animation: brilloFlotante 5s infinite ease-in-out;
-}
-
-.d1 { top: 20%; left: 15%; animation-delay: 0s; }
-.d2 { top: 35%; left: 80%; animation-delay: 1s; }
-.d3 { top: 60%; left: 25%; animation-delay: 2.5s; }
-.d4 { top: 75%; left: 70%; animation-delay: 1.5s; }
-.d5 { top: 15%; left: 60%; animation-delay: 3s; }
-
-@keyframes brilloFlotante {
-  0%, 100% { transform: scale(0.3); opacity: 0.2; }
-  50% { transform: scale(1.5); opacity: 1; }
+  height: 30px;
+  background: radial-gradient(circle, #e84393 30%, transparent 31%) 0 0 / 40px 40px,
+              radial-gradient(circle, #fdcb6e 30%, transparent 31%) 20px 20px / 40px 40px;
+  opacity: 0.5;
 }
 
 /* ==============================================
-   GIRASOLES MOVIÉNDOSE POR TODA LA PANTALLA
-============================================== */
-.girasoles-pantalla {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.girasol-móvil {
-  position: absolute;
-  transform-style: preserve-3d;
-}
-
-/* Trayectorias y animaciones únicas por cada girasol */
-.gf1 {
-  top: 10%;
-  left: -10%;
-  transform: scale(0.5);
-  animation: viajePantalla1 18s linear infinite;
-}
-
-.gf2 {
-  top: 40%;
-  right: -10%;
-  transform: scale(0.65);
-  animation: viajePantalla2 22s linear infinite 3s;
-}
-
-.gf3 {
-  bottom: -10%;
-  left: 20%;
-  transform: scale(0.45);
-  animation: viajePantalla3 16s linear infinite 1s;
-}
-
-.gf4 {
-  top: -10%;
-  left: 70%;
-  transform: scale(0.55);
-  animation: viajePantalla4 20s linear infinite 5s;
-}
-
-.gf5 {
-  top: 60%;
-  left: -10%;
-  transform: scale(0.4);
-  animation: viajePantalla1 25s linear infinite 8s;
-}
-
-.gf6 {
-  bottom: -10%;
-  right: 15%;
-  transform: scale(0.6);
-  animation: viajePantalla3 19s linear infinite 4s;
-}
-
-/* Animaciones de movimiento libre en 3D por la pantalla */
-@keyframes viajePantalla1 {
-  0% { transform: translate(0, 0) rotate(0deg) rotateY(0deg) scale(0.4); }
-  50% { transform: translate(60vw, 40vh) rotate(180deg) rotateY(180deg) scale(0.7); }
-  100% { transform: translate(115vw, -10vh) rotate(360deg) rotateY(360deg) scale(0.4); }
-}
-
-@keyframes viajePantalla2 {
-  0% { transform: translate(0, 0) rotate(0deg) rotateX(0deg) scale(0.6); }
-  50% { transform: translate(-50vw, -30vh) rotate(-180deg) rotateX(180deg) scale(0.35); }
-  100% { transform: translate(-115vw, 20vh) rotate(-360deg) rotateX(360deg) scale(0.6); }
-}
-
-@keyframes viajePantalla3 {
-  0% { transform: translate(0, 0) rotate(0deg) scale(0.5); }
-  50% { transform: translate(-30vw, -70vh) rotate(180deg) scale(0.8); }
-  100% { transform: translate(40vw, -115vh) rotate(360deg) scale(0.5); }
-}
-
-@keyframes viajePantalla4 {
-  0% { transform: translate(0, 0) rotate(0deg) scale(0.55); }
-  50% { transform: translate(-40vw, 50vh) rotate(-180deg) scale(0.3); }
-  100% { transform: translate(20vw, 115vh) rotate(-360deg) scale(0.55); }
-}
-
-/* ==============================================
-   CONTENIDO PRINCIPAL Y FLOR 3D
+   CONTENIDO PRINCIPAL
 ============================================== */
 .contenedor {
   position: relative;
-  z-index: 3;
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,32 +233,28 @@ body {
 .encabezado .fecha {
   font-size: 0.85rem;
   letter-spacing: 4px;
-  color: #ffeaa7;
+  color: #2d3436;
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 234, 167, 0.8);
 }
 
 .encabezado h1 {
   font-family: 'Sacramento', cursive;
   font-size: 3.2rem;
-  color: #ffffff;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 4px 10px rgba(0,0,0,0.5);
+  color: #d63031;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
   margin: 2px 0;
 }
 
 .encabezado .subtitulo {
   font-size: 0.95rem;
-  color: #dff9fb;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  margin-bottom: 10px;
+  color: #2d3436;
 }
 
-/* Escena del Ramo */
 .escena-3d {
   perspective: 1000px;
   width: 100%;
   max-width: 360px;
-  height: 360px;
+  height: 330px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -276,13 +266,7 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  animation: balanceoEdén 6s ease-in-out infinite alternate;
   transform-origin: bottom center;
-}
-
-@keyframes balanceoEdén {
-  0% { transform: rotateX(6deg) rotateY(-8deg); }
-  100% { transform: rotateX(12deg) rotateY(8deg); }
 }
 
 .girasol {
@@ -311,18 +295,11 @@ body {
   z-index: 4;
 }
 
-/* Estructura del Girasol */
 .flor {
   position: relative;
   width: 140px;
   height: 140px;
   transform-style: preserve-3d;
-  animation: giroFlor 16s linear infinite;
-}
-
-@keyframes giroFlor {
-  0% { transform: rotateZ(0deg); }
-  100% { transform: rotateZ(360deg); }
 }
 
 .centro {
@@ -334,7 +311,7 @@ body {
   top: 40px;
   left: 40px;
   z-index: 10;
-  box-shadow: inset 0 0 10px #000, 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 10px #000;
 }
 
 .petalo {
@@ -346,21 +323,20 @@ body {
   background: linear-gradient(to top, #ff8f00 0%, #ffee58 100%);
   border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
   transform-origin: bottom center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
-.p1  { transform: rotate(0deg) translateZ(4px) rotateX(12deg); }
-.p2  { transform: rotate(30deg) translateZ(2px) rotateX(12deg); }
-.p3  { transform: rotate(60deg) translateZ(5px) rotateX(12deg); }
-.p4  { transform: rotate(90deg) translateZ(3px) rotateX(12deg); }
-.p5  { transform: rotate(120deg) translateZ(4px) rotateX(12deg); }
-.p6  { transform: rotate(150deg) translateZ(2px) rotateX(12deg); }
-.p7  { transform: rotate(180deg) translateZ(5px) rotateX(12deg); }
-.p8  { transform: rotate(210deg) translateZ(3px) rotateX(12deg); }
-.p9  { transform: rotate(240deg) translateZ(4px) rotateX(12deg); }
-.p10 { transform: rotate(270deg) translateZ(2px) rotateX(12deg); }
-.p11 { transform: rotate(300deg) translateZ(5px) rotateX(12deg); }
-.p12 { transform: rotate(330deg) translateZ(3px) rotateX(12deg); }
+.p1  { transform: rotate(0deg) translateZ(4px); }
+.p2  { transform: rotate(30deg) translateZ(2px); }
+.p3  { transform: rotate(60deg) translateZ(5px); }
+.p4  { transform: rotate(90deg) translateZ(3px); }
+.p5  { transform: rotate(120deg) translateZ(4px); }
+.p6  { transform: rotate(150deg) translateZ(2px); }
+.p7  { transform: rotate(180deg) translateZ(5px); }
+.p8  { transform: rotate(210deg) translateZ(3px); }
+.p9  { transform: rotate(240deg) translateZ(4px); }
+.p10 { transform: rotate(270deg) translateZ(2px); }
+.p11 { transform: rotate(300deg) translateZ(5px); }
+.p12 { transform: rotate(330deg) translateZ(3px); }
 
 .tallo {
   position: absolute;
@@ -369,7 +345,7 @@ body {
   transform: translateX(-50%);
   width: 10px;
   height: 160px;
-  background: linear-gradient(to right, #1b5e20, #43a047, #0f3d0e);
+  background: linear-gradient(to right, #1b5e20, #43a047);
   border-radius: 5px;
   z-index: 2;
 }
@@ -386,13 +362,13 @@ body {
 .hoja-izq {
   top: 170px;
   left: 20px;
-  transform: rotate(-25deg) rotateY(20deg);
+  transform: rotate(-25deg);
 }
 
 .hoja-der {
   top: 190px;
   right: 20px;
-  transform: scaleX(-1) rotate(-25deg) rotateY(20deg);
+  transform: scaleX(-1) rotate(-25deg);
 }
 
 .maceta {
@@ -402,7 +378,7 @@ body {
   transform: translateX(-50%);
   width: 110px;
   height: 75px;
-  background: linear-gradient(to right, #d35400, #e67e22, #a04000);
+  background: linear-gradient(to right, #d35400, #e67e22);
   clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
   z-index: 6;
 }
@@ -423,21 +399,19 @@ body {
   bottom: 0;
   width: 150px;
   height: 18px;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.15);
   border-radius: 50%;
-  filter: blur(8px);
+  filter: blur(5px);
 }
 
-/* Tarjeta del Mensaje */
 .tarjeta-mensaje {
   margin-top: 15px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   padding: 15px 22px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   width: 90%;
   max-width: 380px;
 }
@@ -445,14 +419,24 @@ body {
 .tarjeta-mensaje p {
   font-size: 0.9rem;
   line-height: 1.5;
-  color: #ffffff;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  color: #2c3e50;
 }
 
-/* Adaptabilidad a Celulares y Tablets */
-@media (max-width: 480px) {
-  .encabezado h1 { font-size: 2.4rem; }
-  .encabezado .subtitulo { font-size: 0.85rem; }
-  .escena-3d { height: 320px; transform: scale(0.85); }
-  .tarjeta-mensaje p { font-size: 0.85rem; }
+@media (max-width: 768px) {
+  .galeria-girasoles-centrados {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .flor-lluvia {
+    width: 80px;
+    height: 80px;
+  }
+  .centro-lluvia {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4rem;
+  }
+  .tallo-gigante {
+    height: 90px;
+  }
 }
